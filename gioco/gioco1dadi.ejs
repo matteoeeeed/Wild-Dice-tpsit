@@ -1,0 +1,114 @@
+<% include('header'); %>
+<html>
+ <body>
+ <style> 
+body{ background-color: rgb(206, 87, 7); 
+} 
+   
+.myButton { 	
+background-color:#44c767; 	
+border-radius:28px; 	
+border:1px solid #18ab29; 	
+display:inline-block; 	
+cursor:pointer; 	
+color:#ffffff; 	
+font-family:Arial; 	
+font-size:17px; 	
+padding:16px 31px; 	
+text-decoration:none; 	
+text-shadow:0px 1px 0px #2f6627;
+} 
+  
+.myButton:hover { 
+background-color:#5cbf2a; 
+} 
+   
+.myButton:active { 	
+position:relative; 	
+top:1px; 
+}
+   
+.myButton2 { 
+box-shadow:inset 0px 1px 0px 0px #93f298; 
+background:linear-gradient(to bottom, #87fe00 5%, #10ca39 100%);
+background-color:#00fe61;
+border-radius:11px; 
+border:7px solid #0f6804; 
+display:inline-block; 
+cursor:pointer; 
+color:#ffffff; 
+font-family:Arial; 
+font-size:26px; 
+font-weight:bold; 
+padding:18px 24px; 
+text-decoration:none; 
+text-shadow:0px 1px 6px #b23e35; 
+} 
+.myButton2:hover { background:linear-gradient(to bottom, #5dce00 5%, #00fe6a 100%);
+background-color:#bcfa2c;               
+}
+   
+.myButton2:active {
+position:relative; top:1px; 
+}
+ 
+ </style>
+           
+
+<h1 style="font-family: verdana;font-weight: bold;text-transform: capitalize;font-size: 30px;color: rgb(0, 0, 0);text-shadow: rgb(255, 255, 255) 2px 2px 2px;">GIOCO DEL DADO</h1><button class="myButton2" onclick="myImagec()">Lancia un dado</button> 
+<img id="myImage" src="https://cdn.pixabay.com/photo/2013/07/12/13/57/dice-147665__340.png" style="width:200px;position: absolute;left: 530px;"> 
+<h2 style="font-family: verdana;font-weight: bold;text-transform: capitalize;font-size: 30px;color: rgb(38, 0, 255);text-shadow: rgb(255, 255, 255) 2px 2px 2px;">Punteggio pari:<p1 id="contp">0</p1></h2> 
+<h2 style="font-family: verdana;font-weight: bold;text-transform: capitalize;font-size: 30px;color: rgb(255, 0, 0);text-shadow: rgb(255, 255, 255) 2px 2px 2px;">Punteggio dispari:<p1 id="contd">0</p1></h2> 
+<h2 style="font-family: verdana;font-weight: bold;text-transform: capitalize;font-size: 30px;color: rgb(255, 255, 255);text-shadow: rgb(255, 255, 255) 2px 2px 2px;">Numero di facce:<p1 id="sss">0</p1></h2> 
+<h2 style="font-family: verdana;font-weight: bold;text-transform: capitalize;font-size: 30px;color: rgb(224, 203, 12);text-shadow: rgb(255, 255, 255) 2px 2px 2px;">Soldi:<p1 id="s">0</p1>$</h2>
+ 
+<script>
+contp=0,contd=0,soldi=100; 
+function myImagec(){ 
+num=Math.floor(Math.random()*6)+1;
+if(num==1){ 
+document.getElementById("myImage").src="https://cdn.pixabay.com/photo/2013/07/12/13/57/dice-147665__340.png"; 
+} 
+if(num==2){
+document.getElementById("myImage").src="https://cdn.pixabay.com/photo/2013/07/12/13/57/dice-147666_960_720.png"; 
+} 
+if(num==3){
+document.getElementById("myImage").src="https://cdn.pixabay.com/photo/2013/07/12/13/58/dice-147667_960_720.png";
+} 
+if(num==4){
+document.getElementById("myImage").src="https://cdn.pixabay.com/photo/2013/07/12/13/58/dice-147668_1280.png";
+}
+if(num==5){ 
+document.getElementById("myImage").src="https://cdn.pixabay.com/photo/2013/07/12/13/58/dice-147669_1280.png"; 
+} 
+if(num==6){
+document.getElementById("myImage").src="https://cdn.pixabay.com/photo/2013/07/12/13/58/dice-147670_640.png"; 
+} 
+if(num%2==0){
+contp++; 
+soldi=soldi-10; 
+}else{ 
+contd++; 
+} 
+if(soldi<10){ 
+document.onload(Haiperso()); 
+}
+if(contd>9){ 
+document.onload(Haivinto()); 
+}
+document.getElementById("contp").innerHTML=contp; 
+document.getElementById("contd").innerHTML=contd; 
+document.getElementById("s").innerHTML=soldi; 
+document.getElementById("sss").innerHTML=num; 
+}
+function Haiperso(){ 
+location.replace("/haiP"); 
+} 
+function Haivinto(){
+location.replace("/haiV");
+}
+</script>
+<a href="/" class="myButton">Torna al menu</a>       
+</body>
+</html>
+<% include('footer');  %>
